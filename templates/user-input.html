@@ -1,1 +1,77 @@
+<!-- User Input template -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dishcovery - Input</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe6f0, #fff9e6);
+            font-family: 'Amatic SC', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            font-size: 25pt;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 20pt;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 90%;
+            font-size: 16pt;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            font-family: 'Amatic SC', cursive;
+        }
+        button {
+            font-size: 18pt;
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Amatic SC', cursive;
+        }
+        button:hover {
+            background-color: #e0488b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>What do you want to cook?</h1>
+        <form action="/results" method="post">
+            <label for="ingredients">Enter ingredients you have (comma separated):</label>
+            <input type="text" id="ingredients" name="ingredients" placeholder="e.g. tomato, cheese, bread" required />
+
+            <label for="meal">Or enter a meal keyword:</label>
+            <input type="text" id="meal" name="meal" placeholder="e.g. pasta, sandwich" />
+
+            <button type="submit">Find Recipes</button>
+        </form>
+    </div>
+</body>
+</html>

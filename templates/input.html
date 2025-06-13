@@ -1,1 +1,87 @@
+<!-- Input template -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Enter {{ input_type }}</title>
+    <style>
+        body {
+            font-family: 'Amatic SC', cursive;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        h1 {
+            font-size: 25pt;
+            margin-bottom: 20px;
+            color: #ff6f91;
+        }
+        label {
+            font-size: 20pt;
+            display: block;
+            margin-bottom: 10px;
+            color: #ff4b6e;
+        }
+        input[type="text"] {
+            font-size: 16pt;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ff6f91;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        button {
+            font-family: 'Amatic SC', cursive;
+            font-size: 20pt;
+            background: #ff6f91;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #ff4b6e;
+        }
+        .error {
+            color: red;
+            font-size: 16pt;
+            margin-bottom: 15px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Enter your {{ input_type }}</h1>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="POST">
+            <label for="user_input">
+                {% if input_type == 'ingredients' %}
+                    List ingredients separated by commas:
+                {% else %}
+                    Enter a meal keyword:
+                {% endif %}
+            </label>
+            <input type="text" id="user_input" name="user_input" placeholder="{% if input_type == 'ingredients' %}e.g. tomato, cheese, bread{% else %}e.g. pasta, sandwich{% endif %}" required />
+            <button type="submit">Get Recipes</button>
+        </form>
+    </div>
+</body>
+</html>

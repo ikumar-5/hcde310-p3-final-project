@@ -1,1 +1,54 @@
+<!-- Choose template -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Choose Input Type</title>
+    <style>
+        body {
+            font-family: 'Amatic SC', cursive;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 25pt;
+            margin-bottom: 30px;
+            color: #ff6f91;
+        }
+        a.button {
+            display: inline-block;
+            background: #ff6f91;
+            color: white;
+            padding: 15px 35px;
+            margin: 15px;
+            text-decoration: none;
+            font-size: 20pt;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        a.button:hover {
+            background: #ff4b6e;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>How would you like to search?</h1>
+        <a class="button" href="{{ url_for('input_page') }}?type=ingredients">By Ingredients</a>
+        <a class="button" href="{{ url_for('input_page') }}?type=keyword">By Keyword</a>
+    </div>
+</body>
+</html>
